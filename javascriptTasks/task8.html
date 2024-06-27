@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>task8</title>
+    </head>
+    <style>
+    
+        .t5 input{
+        width:98%;
+        font-size:14px;
+        
+        }
+        .all{
+        font-size:14px;
+        text-align:center;
+        font-weight:bold;
+        }
+        .lan{
+        display:flex;
+        align-items: center;
+        }
+
+        .dec div{
+        margin-right:9px;
+        }
+
+
+    </style>
+    <body >
+        <div style="margin:25px 400px; background-image: url('https://images.pexels.com/photos/2847648/pexels-photo-2847648.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
+            <table class="t5" >
+                <caption><strong>Regitration Form</strong></caption>
+                <tr>
+                <td  class="all"><label for="name">First Name</label></td>
+                <td><input type="text"/></td>
+                </tr>
+                <tr>
+                <td  class="all"><label for="name">Lastname</label></td>
+                <td><input type="text"/></td>
+                </tr>
+                <tr>
+                <td class="all"><label for="name" >Email</label></td>
+                <td><input id="emailInput" type="email"/>
+                    <span id="mailvalid"></span></td></td>
+                </tr>
+                <tr>
+                <td class="all"><label for="name" >Password</label></td>
+                <td><input id="passwordInput" type="password"/>
+                <span id="passvalid"></span></td>
+                </tr>
+                <tr>
+                <td class="all"><label for="name">Re-enter Password</label></td>
+                <td><input id="repasswordInput" type="password"/>
+                    <span id="repassvalid"></span></td></td>
+                </tr>
+                <tr>
+                <td class="all"><label for="name" >Gender:</label></td>
+                <td><div style="display:flex;">
+                    <div class="lan"><input type="checkbox"/> <label for="male">Male</label></div>
+                    <div class="lan"><input type="checkbox"/> <label for="female">Female</label></div>
+                    </div></td>
+                </tr>
+                
+                <tr>
+                <td class="all"><label for="name">Age:</label></td>
+                <td><input type="text"/></td>
+                </tr>
+                
+                <tr>
+                <td  class="all"><label for="name">Phone Number</label></td>
+                <td><input type="number"/></td>
+                </tr>
+                <tr>
+                <td class="all"><label for="name">Address</label></td>
+                <td><input type="text"/></td>
+                </tr>
+            <tr>
+                <td class="all"><label for="name">State</label></td>
+                <td><input type="text"/></td>
+                </tr>
+            
+                <td class="all"><label for="name">Country</label></td>
+                <td ><select>
+                <option>Choose your country</option>
+                <option value="option1">India</option>
+                <option value="option2">Japan</option>
+            </select></td>
+                </tr>
+            
+            <tr>
+                <th>Languages known</th>
+                <td
+                    <div style="display:flex; align-items: center;">
+                        <div class="lan"><input type="checkbox"/> <label for="male">English</label></div>
+                        <div class="lan"><input type="checkbox"/> <label for="female">Kanada</label></div>
+                        <div class="lan"><input type="checkbox"/> <label for="male">Hindi</label></div>
+                        <div class="lan"><input type="checkbox"/> <label for="female">Telugu</label></div>
+                    </div>
+                </td>
+                
+                </tr>
+            <tr>
+                    <td  colspan="2"> <div class="dec" style=" display:flex; font-size:15px;">
+                    <div><input class="chk1" type="checkbox"/></div>
+                    <div><label for="female">Hereby I declare all the given details are true</label></div>
+                    </div></td>
+                </tr>
+            
+            <tr>
+                    <td  colspan="4"> 
+                    <div style=" font-size:12px; padding-left:20rem;">Log in to <a href="https://ethnus.com/" target="_blank">Ethnus</a> Website</div>
+                    </td>
+                </tr>
+            </table>
+
+            <div style="margin-top:10px; margin-left:180px; padding:2px 0 2px 0;">
+                <button onclick="validateEmail(); validatePassword(); validateRePassword();">
+                    Register</button>
+            </div>
+        </div>
+        <script>
+            function validateEmail() {
+                var email = document.getElementById("emailInput").value;
+                console.log(email);
+                var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                var result = emailPattern.test(email) ? "" : "Invalid Email";
+                document.getElementById("mailValid").innerText = result;
+            }
+
+            function validatePassword() {
+                var password = document.getElementById("passwordInput").value;
+                var resultElement = document.getElementById("passvalid");
+
+                if (password.length < 8) {
+                    document.getElementById("passValid").innerText = "Password must be at least 8 characters long.";
+                }
+                if (!/[A-Z]/.test(password)) {
+                    document.getElementById("passValid").innerText ="Password must contain at least one uppercase letter.";
+                    
+                }
+                if (!/[a-z]/.test(password)) {
+                    document.getElementById("passValid").innerText ="Password must contain at least one lowercase letter.";
+                    
+                }
+                if (!/[0-9]/.test(password)) {
+                    document.getElementById("passValid").innerText ="Password must contain at least one digit.";
+                   
+                }
+                if (!/[^A-Za-z0-9]/.test(password)) {
+                    document.getElementById("passValid").innerText ="Password must contain at least one special character.";
+                    
+                }
+
+                
+            }
+            function validateRePassword() {
+                var string1 = document.getElementById("passwordInput").value;
+                var string2 = document.getElementById("repasswordInput").value;
+                var resultElement = document.getElementById("result");
+
+                if (string1 === string2) {
+                    
+                } else {
+                    resultElement.innerHTML = "The strings are different.";
+                    resultElement.className = "error";
+                }
+            }
+        </script>
+    </body>
+</html>

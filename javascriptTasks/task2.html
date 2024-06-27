@@ -1,0 +1,17 @@
+<html>
+    <body>
+        <div>
+            <h1>Sort String</h1>
+            <input type="text" id="textInput" placeholder="Enter any string">
+            <button onclick="sortLetters()">Sort</button>
+            <div id="result"></div>
+        </div>
+        <script>
+            function sortLetters() {
+                var text = document.getElementById("textInput").value;
+                var sortedText = text.split('').sort().join('');
+                document.getElementById("result").innerText = "Sorted Letters: " + sortedText;
+            }
+        </script>
+    </body>
+</html>

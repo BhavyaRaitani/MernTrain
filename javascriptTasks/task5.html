@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <style>
+            .warning{
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td>Name</td>
+                <td>
+                    <input type="text" id="personName">
+                </td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>
+                    <input type="text" id="emailInput">
+                </td>
+                <td><span class="warning" id="mailValid"></span></td>
+            </tr>
+            <tr>
+                <td>Website</td>
+                <td>
+                    <input type="text" id="urlInput">
+                </td>
+                <td><span class="warning" id="siteValid"></span></td>
+            </tr>
+            <tr>
+                <td>Message</td>
+                <td>
+                    <textarea id="scrollableInput"></textarea>
+                </td>
+            </tr>
+        </table>
+        <button onclick="validateEmail(); validateURL() 
+        ">Submit</button>
+        <script>
+            function validateEmail() {
+                var email = document.getElementById("emailInput").value;
+                var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                var result = emailPattern.test(email) ? "" : "Invalid Email";
+                document.getElementById("mailValid").innerText = result;
+            }
+
+            function validateURL() {
+                var url = document.getElementById("urlInput").value;
+                var urlPattern = /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/;
+                var result = urlPattern.test(url) ? "" : "Invalid URL";
+                document.getElementById("siteValid").innerText = result;
+            }
+        </script>
+    </body>
+</html>

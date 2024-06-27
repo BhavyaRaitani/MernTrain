@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>task1</title>
+    <style>
+      p{
+        margin: 10px;
+      }
+      .numbersystem{
+        border: 2px solid black;
+        width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="numbersystem">
+      <form id="myform">
+        <p>1st Number : <input id="firstN" type="number" placeholder="first number"></p>
+        <p>2nd Number : <input id="secondN" type="number" placeholder="second number"></p>
+      </form>
+      
+      <button onclick="
+        document.getElementById('myform').addEventListener('change', Multiply());
+      ">Multiply</button>
+  
+      <button onclick="
+        document.getElementById('myform').addEventListener('change', Divide());
+      ">Divide</button>
+  
+      <p>The Result Is : <span id="res">0</span></p>
+  
+    </div>
+
+    
+    <script>
+      let result = 0;
+      
+      function Multiply(){
+        let first = parseInt(document.getElementById("firstN").value, 10);
+        let second = parseInt(document.getElementById("secondN").value, 10);
+        result = first * second;
+        document.getElementById("res").innerHTML = result;
+      }
+      function Divide(){
+        let first = parseInt(document.getElementById("firstN").value, 10);
+        let second = parseInt(document.getElementById("secondN").value, 10);
+        result = first / second;
+        document.getElementById("res").innerHTML = result;
+      }
+    </script>
+  </body>
+</html>

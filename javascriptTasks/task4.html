@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>task2</title>
+    <style>
+      p{
+        margin: 10px;
+        display: block;
+      }
+      
+    </style>
+  </head>
+  <body>
+
+    <div class="date-time">
+      <button onclick="
+        giveDate();
+      ">Show Date</button>
+      <p><span id="res1"></span></p>
+
+      <button onclick="
+        giveTime();
+      ">Show Time</button>
+      <p><span id="res2"></span></p>
+  
+    </div>
+
+    <script>
+      
+      function giveDate(){
+        let d = new Date();
+        const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        let justDate = d.getDate()  + "/" + months[d.getMonth()] + "/" + d.getFullYear();
+        document.getElementById("res1").innerHTML = justDate;
+      }
+      function giveTime(){
+        let d = new Date();
+        document.getElementById("res2").innerHTML = d;
+      }
+    </script>
+  </body>
+</html>
