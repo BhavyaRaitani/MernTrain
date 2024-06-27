@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 7</title>
+    <style>
+        body {
+            font-family: Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            overflow: hidden;
+        }
+        .container {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            text-align: center;
+        }
+        #movingImage {
+            position: relative;
+            margin-top: 30px;
+            width: 200px; 
+            height: auto;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="./trainimg.jpeg" alt="Moving Image" id="movingImage">
+    </div>
+    <div style="color: blue; font-size: 30px;">
+        Click the following buttons to handle animation
+    </div>
+    <div class="button-container">
+        <button onclick="startAnimation()">Start</button>
+        <button onclick="stopAnimation()">Stop</button>
+    </div>
+
+    <script>
+        var img = document.getElementById('movingImage');
+        var currentPosition = 0;
+        var speed = 2; 
+        var animationInterval;
+
+        function moveRight() {
+            currentPosition += speed;
+            img.style.left = currentPosition + 'px';
+
+            if (currentPosition >= window.innerWidth) {
+                startAnimation();
+            }
+        }
+
+        function startAnimation() {
+            currentPosition = -img.clientWidth; 
+            animationInterval = setInterval(moveRight, 10); 
+        }
+
+        function stopAnimation() {
+            clearInterval(animationInterval);
+        }
+    </script>
+</body>
+</html>
